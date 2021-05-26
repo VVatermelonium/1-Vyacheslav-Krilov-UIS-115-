@@ -3,16 +3,25 @@
 using namespace std;
 
 Pair::Pair(int a, int b) {
-	this->a = a;
-	this->b = b;
+	this->a = new int(a);
+	this->b = new int(b);
 }
 
-Pair::Pair(void) {
-	a = 0;
-	b = 0;
+Pair::Pair() {
+	a = nullptr;
+	b = nullptr;
 }
 
-Pair::~Pair(void) {
+Pair::Pair(Pair&& var) {
+	this->a = var.a;
+	this->b = var.b;
+	var.a = nullptr;
+	var.b = nullptr;
+}
+
+Pair::~Pair() {
+	delete a;
+	delete b;
 }
 
 ostream& operator<< (ostream& out, Pair& p) {

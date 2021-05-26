@@ -6,6 +6,11 @@ using namespace std;
 
 int main() {
 	setlocale(LC_ALL, "Russian");
+	//проверка конструктора перемещения
+	Pair* test1 = new Pair(1, 1);
+	cout << test1 << endl;
+	Pair* testend(test1);
+	cout << testend << endl;
 	Pair q(10, 9);
 	if (q.are_equal()) 
 		cout << "Числа равны" << endl;
